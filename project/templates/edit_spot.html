@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block title %}Edit Spot{% endblock %}
+
+{% block main %}
+    <h1 class="text-cozy mb-4">Edit Your Cozy Spot ☕</h1>
+
+    <form action="/edit/{{ spot.id }}" method="post" enctype="multipart/form-data" class="mx-auto" style="max-width: 400px;">
+        <div class="mb-3">
+            <input type="text" name="name" class="form-control" value="{{ spot.name }}" required>
+        </div>
+
+        <div class="mb-3">
+            <input type="text" name="address" class="form-control" value="{{ spot.address }}" required>
+        </div>
+
+        <div class="mb-3">
+            <input type="number" name="rating" class="form-control" value="{{ spot.rating }}" min="1" max="5" step="0.5">
+        </div>
+
+        <div class="mb-3">
+            <textarea name="notes" class="form-control">{{ spot.notes }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="date_traveled" class="form-label">Date Traveled:</label>
+            <input type="date" id="date_traveled" name="date_traveled" class="form-control" value="{{ spot.date_traveled }}">
+        </div>
+
+        {% if spot.image_path %}
+            <div class="mb-3 text-center">
+                <img src="{{ url_for('static', filename=spot.image_path) }}" alt="Existing image" style="max-width:150px; border-radius:10px;">
+            </div>
+        {% endif %}
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Change Photo (optional):</label>
+            <input type="file" id="image" name="image" accept="image/*" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-cozy w-100">Save Changes</button>
+    </form>
+{% endblock %}

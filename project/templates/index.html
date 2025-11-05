@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Cozy Map{% endblock %}
+
+{% block main %}
+    <h1 class="header-title fw-bold text-cozy">Hot Chocolate Travel Map ☕</h1>
+    <p class="text-muted">Discover and share your favorite hot chocolate spots!</p>
+
+<!-- Map container -->
+    <div id="map-container" class="position-relative" style="height: 70vh; width: 100%;">
+    <!-- The actual Leaflet map -->
+        <div id="map" style="height: 100%; width: 100%; z-index: 1;"></div>
+
+    <!-- Floating toggle (only for logged-in users) -->
+        {% if session["user_id"] %}
+            <div id="filter-toggle" class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="mySpotsToggle">
+                <label class="form-check-label text-cozy fw-semibold" id="toggleLabel" for="mySpotsToggle">
+                    Show only my spots
+                </label>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="mt-3">
+        <a href="/export_all" class="btn btn-outline-cozy">🌍 Export All to Google Maps or Google Earth (KML)</a>
+    </div>
+{% endblock %}

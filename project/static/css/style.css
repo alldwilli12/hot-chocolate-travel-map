@@ -1,0 +1,356 @@
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+body {
+    scroll-padding-top: 70px;
+    /* helps with anchor links */
+}
+
+main.container {
+    margin-top: 10px;
+}
+
+.about-container {
+    min-height: 70vh;
+    /* fills most of viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* centers vertically */
+    align-items: center;
+    /* centers horizontally */
+    text-align: center;
+    margin-top: -40px;
+    /* gently lift content closer to navbar */
+    padding-bottom: 0;
+    /* remove bottom white space */
+}
+
+.about-container h1 {
+    color: #9b4b23;
+    /* cozy brown */
+    margin-bottom: 1rem;
+}
+
+.about-container p {
+    max-width: 700px;
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/*popup styling */
+.popup-content {
+    font-family: 'Poppins', sans-serif;
+    color: #4a3c31;
+    /* Warm brown tone */
+    background-color: #fff8f3;
+    padding: 8px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 180px;
+}
+
+.poupup-title {
+    font-weight: bold;
+    color: #6b4226;
+    /* brown */
+    margin-bottom: 4px;
+    font-size: 1.1em;
+}
+
+.popup-address {
+    font-style: italic;
+    color: #795548;
+    /* brown */
+    margin-bottom: 6px;
+}
+
+.popup-rating {
+    color: #ffb300;
+    /* yellow */
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.popup-notes {
+    color: #5d4037;
+    /* dark brown*/
+    font-size: 0.9em;
+}
+
+/* Color Theme */
+.text-cozy {
+    color: #a0522d;
+    /* warm cocoa brown */
+}
+
+.btn-cozy {
+    background-color: #ff7f50;
+    /* coral/orange */
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-cozy:hover {
+    background-color: #e56b3f;
+    /* darker orange on hover */
+    transform: scale(1.02);
+}
+
+
+/* Center and compact login and registration card */
+.login-container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 4rem;
+}
+
+/* Center Full Page */
+.page-wrapper {
+    display: flex;
+    align-items: center;
+    /*center vertically*/
+    justify-content: center;
+    /* center horizontally*/
+    height: 100vh;
+    /*full viewport height*/
+}
+
+/*Limit width of content */
+.content-wrapper {
+    width: 90%;
+    max-width: 900px;
+}
+
+
+/* Header styling */
+.header-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #a0522d;
+    /* warm cocoa brown */
+    letter-spacing: 1px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.header-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: #e56b3f;
+    ;
+    /* warm cocoa brown */
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* Floating toggle button on top-right of map */
+#filter-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e6ccb2;
+    border-radius: 12px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    /* ensures it stays above the map */
+}
+
+#filter-toggle label {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #7f5539;
+    cursor: pointer;
+}
+
+/* Cozy switch colors */
+.form-check-input {
+    width: 2.8rem;
+    height: 1.4rem;
+    background-color: #b08968;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-check-input:checked {
+    background-color: #7f5539;
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(176, 137, 104, 0.25);
+}
+
+/* Floating toggle on top-right of the map */
+#filter-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e6ccb2;
+    border-radius: 12px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    /* stay above map */
+}
+
+#filter-toggle label {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #7f5539;
+    cursor: pointer;
+}
+
+/* Cozy switch colors */
+.form-check-input {
+    width: 2.8rem;
+    height: 1.4rem;
+    background-color: #b08968;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-check-input:checked {
+    background-color: #7f5539;
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(176, 137, 104, 0.25);
+}
+
+.leaflet-popup-content {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #5a3825;
+}
+
+.leaflet-popup-content img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.popup-img {
+    width: 100px;
+    /* shrink image */
+    height: 100px;
+    /* make square thumbnail */
+    object-fit: cover;
+    /* crop */
+    border-radius: 10px;
+    /* round corners */
+    margin-top: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    display: block;
+    /* centers image */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.leaflet-popup-content {
+    max-width: 200px !important;
+    /* constrain popup size */
+    text-align: center;
+}
+
+
+.leaflet-popup-content h3 {
+    color: #7f5539;
+    font-weight: 600;
+}
+
+/* Grid layout stays the same */
+.journal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    justify-items: center;
+    padding: 10px;
+}
+
+/* Card styling */
+.small-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.small-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Image stays at the top, fixed square */
+.square-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* Card body */
+.card-body {
+    padding: 10px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* Vertically center text when no image */
+.centered-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 200px;
+    /* gives height when no image */
+}
+
+/* Text styling */
+.card-title {
+    font-weight: bold;
+    color: #5b4636;
+}
+
+.card-text,
+.text-muted {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+/*edit card */
+.btn-outline-cozy {
+    border: 1px solid #b17b4b;
+    color: #b17b4b;
+}
+
+.btn-outline-cozy:hover {
+    background-color: #b17b4b;
+    color: white;
+}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}My Travel Journal{% endblock %}
+
+{% block main %}
+    <h1 class="text-cozy mb-4">☕ My Cozy Hot Chocolate Journal</h1>
+
+    <div class="text-end mb-3">
+        <a href="/export" class="btn btn-cozy">Export Your Spots to Google Maps or Google Earth </a>
+    </div>
+
+    {% if spots %}
+        <div class="journal-grid">
+            {% for spot in spots %}
+                <div class="card small-card">
+                    {% if spot.image_path %}
+                        <img src="{{ url_for('static', filename=spot.image_path) }}" class="square-img" alt="Hot chocolate photo">
+                    {% endif %}
+                    <div class="card-body {% if not spot.image_path %}centered-card-body{% endif %}">
+                        <h5 class="card-title">{{ spot.name }}</h5>
+                        <p class="card-text">{{ spot.address }}</p>
+                        <p>⭐ {{ spot.rating }}/5</p>
+                        {% if spot.date_traveled %}
+                            <p><small class="text-muted">Visited: {{ spot.date_traveled }}</small></p>
+                        {% endif %}
+                        <p><em>{{ spot.notes }}</em></p>
+                        <div class="mt-2">
+                            <a href="/edit/{{ spot.id }}" class="btn btn-sm btn-outline-cozy">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No spots yet — go explore and add your first cozy cup! ☕</p>
+    {% endif %}
+{% endblock %}
